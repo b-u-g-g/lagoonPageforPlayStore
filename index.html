@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lagoon — Delete Account & Data</title>
+<style>
+  :root {
+    --send: rgba(163, 196, 243, 1);
+    --receive: rgba(245, 237, 143, 1);
+    --black: #111111;
+    --white: #ffffff;
+    --gray: #6b6b6b;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #f4f5f7;
+    color: var(--black);
+  }
+
+  .topbar {
+    background: var(--white);
+    border-bottom: 1px solid #e8e8e8;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .topbar svg { flex-shrink: 0; }
+
+  .topbar h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 700;
+    font-size: 26px;
+    margin: 0;
+    color: var(--black);
+  }
+
+  .subheader {
+    max-width: 640px;
+    margin: 28px auto 8px;
+    padding: 0 20px;
+  }
+
+  .subheader h2 {
+    font-size: 20px;
+    margin: 0 0 4px;
+  }
+
+  .subheader p {
+    color: var(--gray);
+    font-size: 14px;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .chat {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 20px 20px 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .row {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+  }
+
+  .row.left { justify-content: flex-start; }
+  .row.right { justify-content: flex-end; }
+
+  .avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--receive);
+    color: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  .bubble {
+    padding: 14px 18px;
+    border-radius: 18px;
+    font-size: 15.5px;
+    line-height: 1.55;
+    max-width: 78%;
+  }
+
+  .row.left .bubble {
+    background: var(--receive);
+    color: var(--black);
+    border-bottom-left-radius: 4px;
+  }
+
+  .row.right .bubble {
+    background: var(--send);
+    color: var(--black);
+    border-bottom-right-radius: 4px;
+  }
+
+  .bubble strong { font-weight: 700; }
+
+  .bubble ul {
+    margin: 8px 0 0;
+    padding-left: 18px;
+  }
+
+  .bubble li { margin-bottom: 4px; }
+
+  .footer {
+    max-width: 640px;
+    margin: 10px auto 40px;
+    padding: 0 20px;
+    color: var(--gray);
+    font-size: 13px;
+    line-height: 1.6;
+    border-top: 1px solid #e2e2e2;
+    padding-top: 20px;
+  }
+
+  .footer a {
+    color: var(--black);
+    font-weight: 600;
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+
+  <div class="topbar">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+      <path d="M2 8c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2" stroke="#111" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M2 13c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2" stroke="#111" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M2 18c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2" stroke="#111" stroke-width="1.6" stroke-linecap="round"/>
+    </svg>
+    <h1>Lagoon.</h1>
+  </div>
+
+  <div class="subheader">
+    <h2>Delete Account &amp; Data</h2>
+    <p>How to request deletion of your Lagoon account and the data associated with it.</p>
+  </div>
+
+  <div class="chat">
+
+    <div class="row left">
+      <div class="avatar">L</div>
+      <div class="bubble">
+        How do I request my account and data to be deleted?
+      </div>
+    </div>
+
+    <div class="row right">
+      <div class="bubble">
+        You can delete your account directly inside the Lagoon app:<br><br>
+        <strong>Open Lagoon → tap the wave icon in the app bar → Device Management → Delete My Account → Confirm.</strong><br><br>
+        Your request is processed immediately, no waiting period, no email required.
+      </div>
+    </div>
+
+    <div class="row left">
+      <div class="avatar">L</div>
+      <div class="bubble">
+        What data gets deleted when I do this?
+      </div>
+    </div>
+
+    <div class="row right">
+      <div class="bubble">
+        Everything tied to your account is permanently removed, including:
+        <ul>
+          <li>Your email address and password</li>
+          <li>Your profile information (name, gender, date of birth)</li>
+          <li>Your education and skills data</li>
+          <li>Your location data</li>
+          <li>Your matches, messages, and project activity</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row left">
+      <div class="avatar">L</div>
+      <div class="bubble">
+        Do you keep any of my data after I delete my account?
+      </div>
+    </div>
+
+    <div class="row right">
+      <div class="bubble">
+        No. We don't retain any of your data after account deletion. Everything is permanently erased from our systems as soon as your request is confirmed.
+      </div>
+    </div>
+
+    <div class="row left">
+      <div class="avatar">L</div>
+      <div class="bubble">
+        Can I undo a deletion once I've confirmed it?
+      </div>
+    </div>
+
+    <div class="row right">
+      <div class="bubble">
+        No. Deletion is immediate and irreversible once you confirm it in the app, so make sure you're ready before tapping confirm.
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    This page applies to the Lagoon app, developed by Lagoon. If you have any trouble deleting your account from within the app, you can reach out to us for assistance.
+  </div>
+
+</body>
+</html>
