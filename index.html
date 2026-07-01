@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lagoon — Delete Account & Data</title>
+<title>Lagoon — Delete Account & Privacy Policy</title>
 <style>
   :root {
     --send: rgba(163, 196, 243, 1);
@@ -25,13 +25,17 @@
   .topbar {
     background: var(--white);
     border-bottom: 1px solid #e8e8e8;
-    padding: 18px 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    padding: 18px 20px 0;
     position: sticky;
     top: 0;
     z-index: 10;
+  }
+
+  .topbar-inner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 16px;
   }
 
   .topbar svg { flex-shrink: 0; }
@@ -42,6 +46,30 @@
     font-size: 26px;
     margin: 0;
     color: var(--black);
+  }
+
+  .tabs {
+    max-width: 640px;
+    margin: 0 auto;
+    display: flex;
+    gap: 4px;
+  }
+
+  .tab-btn {
+    border: none;
+    background: none;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--gray);
+    padding: 10px 16px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: color 0.15s, border-color 0.15s;
+  }
+
+  .tab-btn.active {
+    color: var(--black);
+    border-bottom: 2px solid var(--send);
   }
 
   .subheader {
@@ -134,97 +162,254 @@
     padding-top: 20px;
   }
 
-  .footer a {
-    color: var(--black);
-    font-weight: 600;
-    text-decoration: none;
-  }
+  .panel { display: none; }
+  .panel.active { display: block; }
 </style>
 </head>
 <body>
 
   <div class="topbar">
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-      <path d="M2 8c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2" stroke="#111" stroke-width="1.6" stroke-linecap="round"/>
-      <path d="M2 13c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2" stroke="#111" stroke-width="1.6" stroke-linecap="round"/>
-      <path d="M2 18c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2" stroke="#111" stroke-width="1.6" stroke-linecap="round"/>
-    </svg>
-    <h1>Lagoon.</h1>
+    <div class="topbar-inner">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+        <path d="M2 8c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2" stroke="#111" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M2 13c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2" stroke="#111" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M2 18c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2" stroke="#111" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+      <h1>Lagoon.</h1>
+    </div>
+    <div class="tabs">
+      <button class="tab-btn active" id="tab-delete-btn" onclick="showTab('delete')">Delete Account</button>
+      <button class="tab-btn" id="tab-privacy-btn" onclick="showTab('privacy')">Privacy Policy</button>
+    </div>
   </div>
 
-  <div class="subheader">
-    <h2>Delete Account &amp; Data</h2>
-    <p>How to request deletion of your Lagoon account and the data associated with it.</p>
+  <!-- DELETE ACCOUNT PANEL -->
+  <div class="panel active" id="panel-delete">
+
+    <div class="subheader">
+      <h2>Delete Account &amp; Data</h2>
+      <p>How to request deletion of your Lagoon account and the data associated with it.</p>
+    </div>
+
+    <div class="chat">
+
+      <div class="row left">
+        <div class="avatar">L</div>
+        <div class="bubble">
+          How do I request my account and data to be deleted?
+        </div>
+      </div>
+
+      <div class="row right">
+        <div class="bubble">
+          You can delete your account directly inside the Lagoon app:<br><br>
+          <strong>Open Lagoon → tap the wave icon in the app bar → Device Management → Delete My Account → Confirm.</strong><br><br>
+          Your request is processed immediately, no waiting period, no email required.
+        </div>
+      </div>
+
+      <div class="row left">
+        <div class="avatar">L</div>
+        <div class="bubble">
+          What data gets deleted when I do this?
+        </div>
+      </div>
+
+      <div class="row right">
+        <div class="bubble">
+          Everything tied to your account is permanently removed, including:
+          <ul>
+            <li>Your email address and password</li>
+            <li>Your profile information (name, gender, date of birth)</li>
+            <li>Your education and skills data</li>
+            <li>Your location data</li>
+            <li>Your matches, messages, and project activity</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row left">
+        <div class="avatar">L</div>
+        <div class="bubble">
+          Do you keep any of my data after I delete my account?
+        </div>
+      </div>
+
+      <div class="row right">
+        <div class="bubble">
+          No. We don't retain any of your data after account deletion. Everything is permanently erased from our systems as soon as your request is confirmed.
+        </div>
+      </div>
+
+      <div class="row left">
+        <div class="avatar">L</div>
+        <div class="bubble">
+          Can I undo a deletion once I've confirmed it?
+        </div>
+      </div>
+
+      <div class="row right">
+        <div class="bubble">
+          No. Deletion is immediate and irreversible once you confirm it in the app, so make sure you're ready before tapping confirm.
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer">
+      This page applies to the Lagoon app, developed by Lagoon. If you have any trouble deleting your account from within the app, you can reach out to us for assistance.
+    </div>
+
   </div>
 
-  <div class="chat">
+  <!-- PRIVACY POLICY PANEL -->
+  <div class="panel" id="panel-privacy">
 
-    <div class="row left">
-      <div class="avatar">L</div>
-      <div class="bubble">
-        How do I request my account and data to be deleted?
-      </div>
+    <div class="subheader">
+      <h2>Privacy Policy</h2>
+      <p>Last updated: July 2026 — how Lagoon collects, uses, and protects your data.</p>
     </div>
 
-    <div class="row right">
-      <div class="bubble">
-        You can delete your account directly inside the Lagoon app:<br><br>
-        <strong>Open Lagoon → tap the wave icon in the app bar → Device Management → Delete My Account → Confirm.</strong><br><br>
-        Your request is processed immediately, no waiting period, no email required.
+    <div class="chat">
+
+      <div class="row left">
+        <div class="avatar">L</div>
+        <div class="bubble">
+          What information does Lagoon collect from me?
+        </div>
       </div>
+
+      <div class="row right">
+        <div class="bubble">
+          When you sign up and use Lagoon, we collect:
+          <ul>
+            <li>Account details — email address and password</li>
+            <li>Profile information — name, gender, date of birth</li>
+            <li>Education details — institution, degree, field of study, CGPA, graduation year</li>
+            <li>Skills and interests you add to get matched</li>
+            <li>Profile photo (if you choose to add one)</li>
+            <li>Location data, used to match you with nearby collaborators and projects</li>
+            <li>Basic device and app activity data, to keep the app working and secure</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row left">
+        <div class="avatar">L</div>
+        <div class="bubble">
+          Why do you collect this information?
+        </div>
+      </div>
+
+      <div class="row right">
+        <div class="bubble">
+          We use your information to:
+          <ul>
+            <li>Create and manage your Lagoon account</li>
+            <li>Match you with teammates, collaborators, and projects using our AI matching system</li>
+            <li>Show you relevant, nearby opportunities based on your location</li>
+            <li>Give you better, more personalized recommendations over time</li>
+          </ul>
+          That's it. We don't use your data for advertising, and we don't share it with anyone else.
+        </div>
+      </div>
+
+      <div class="row left">
+        <div class="avatar">L</div>
+        <div class="bubble">
+          Do you share my data with anyone else?
+        </div>
+      </div>
+
+      <div class="row right">
+        <div class="bubble">
+          No. We do not share, sell, or rent your personal data to anyone. Your information is stored securely with us and used solely to give you better matches and recommendations within the app. We use Firebase Authentication to manage account sign-in, which is a standard, secure infrastructure service, not a third party we share your data with for their own use.
+        </div>
+      </div>
+
+      <div class="row left">
+        <div class="avatar">L</div>
+        <div class="bubble">
+          Is my data kept secure?
+        </div>
+      </div>
+
+      <div class="row right">
+        <div class="bubble">
+          Yes. Your data is stored on secure servers and access is limited to what's needed to operate the app and generate your recommendations. We use encrypted connections to protect your data while it's transmitted between your device and our servers.
+        </div>
+      </div>
+
+      <div class="row left">
+        <div class="avatar">L</div>
+        <div class="bubble">
+          What control do I have over my data?
+        </div>
+      </div>
+
+      <div class="row right">
+        <div class="bubble">
+          You can update your profile, skills, and education details in the app at any time. You can also delete your account and all associated data permanently, whenever you choose, from Device Management in the app. See the "Delete Account" tab for the exact steps.
+        </div>
+      </div>
+
+      <div class="row left">
+        <div class="avatar">L</div>
+        <div class="bubble">
+          Does Lagoon collect data from children?
+        </div>
+      </div>
+
+      <div class="row right">
+        <div class="bubble">
+          Lagoon is intended for users who meet the minimum age requirement for creating an account, and is not directed at children. We do not knowingly collect data from children under this age.
+        </div>
+      </div>
+
+      <div class="row left">
+        <div class="avatar">L</div>
+        <div class="bubble">
+          Will this policy ever change?
+        </div>
+      </div>
+
+      <div class="row right">
+        <div class="bubble">
+          We may update this policy from time to time as Lagoon grows. If we make significant changes, we'll update the "Last updated" date at the top of this page.
+        </div>
+      </div>
+
     </div>
 
-    <div class="row left">
-      <div class="avatar">L</div>
-      <div class="bubble">
-        What data gets deleted when I do this?
-      </div>
-    </div>
-
-    <div class="row right">
-      <div class="bubble">
-        Everything tied to your account is permanently removed, including:
-        <ul>
-          <li>Your email address and password</li>
-          <li>Your profile information (name, gender, date of birth)</li>
-          <li>Your education and skills data</li>
-          <li>Your location data</li>
-          <li>Your matches, messages, and project activity</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="row left">
-      <div class="avatar">L</div>
-      <div class="bubble">
-        Do you keep any of my data after I delete my account?
-      </div>
-    </div>
-
-    <div class="row right">
-      <div class="bubble">
-        No. We don't retain any of your data after account deletion. Everything is permanently erased from our systems as soon as your request is confirmed.
-      </div>
-    </div>
-
-    <div class="row left">
-      <div class="avatar">L</div>
-      <div class="bubble">
-        Can I undo a deletion once I've confirmed it?
-      </div>
-    </div>
-
-    <div class="row right">
-      <div class="bubble">
-        No. Deletion is immediate and irreversible once you confirm it in the app, so make sure you're ready before tapping confirm.
-      </div>
+    <div class="footer">
+      This privacy policy applies to the Lagoon app, developed by Lagoon. If you have questions about how your data is handled, you can reach out to us for assistance.
     </div>
 
   </div>
 
-  <div class="footer">
-    This page applies to the Lagoon app, developed by Lagoon. If you have any trouble deleting your account from within the app, you can reach out to us for assistance.
-  </div>
+  <script>
+    function showTab(tab) {
+      document.getElementById('panel-delete').classList.toggle('active', tab === 'delete');
+      document.getElementById('panel-privacy').classList.toggle('active', tab === 'privacy');
+      document.getElementById('tab-delete-btn').classList.toggle('active', tab === 'delete');
+      document.getElementById('tab-privacy-btn').classList.toggle('active', tab === 'privacy');
+      try {
+        history.replaceState(null, '', tab === 'privacy' ? '#privacy-policy' : '#delete-account');
+      } catch (e) {
+        // Ignore — some sandboxed preview environments block history changes.
+      }
+      window.scrollTo(0, 0);
+    }
+
+    (function init() {
+      var hash = window.location.hash.replace('#', '');
+      if (hash === 'privacy-policy' || hash === 'privacy') {
+        showTab('privacy');
+      } else {
+        showTab('delete');
+      }
+    })();
+  </script>
 
 </body>
 </html>
