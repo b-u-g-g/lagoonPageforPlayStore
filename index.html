@@ -180,6 +180,7 @@
     <div class="tabs">
       <button class="tab-btn active" id="tab-delete-btn" onclick="showTab('delete')">Delete Account</button>
       <button class="tab-btn" id="tab-privacy-btn" onclick="showTab('privacy')">Privacy Policy</button>
+      <button class="tab-btn" id="tab-childsafety-btn" onclick="showTab('childsafety')">Child Safety Standards</button>
     </div>
   </div>
 
@@ -387,14 +388,100 @@
 
   </div>
 
+  <!-- CHILD SAFETY STANDARDS PANEL -->
+  <div class="panel" id="panel-childsafety">
+
+    <div class="subheader">
+      <h2>Child Safety Standards</h2>
+      <p>Lagoon's published standards against child sexual abuse and exploitation (CSAE).</p>
+    </div>
+
+    <div class="chat">
+
+      <div class="row left">
+        <div class="avatar">L</div>
+        <div class="bubble">
+          What is Lagoon's policy on child sexual abuse and exploitation?
+        </div>
+      </div>
+
+      <div class="row right">
+        <div class="bubble">
+          Lagoon has zero tolerance for child sexual abuse and exploitation (CSAE) of any kind. This includes, without limitation:
+          <ul>
+            <li>Any content that sexually exploits, abuses, or endangers a child</li>
+            <li>Grooming, sextortion, or trafficking of a minor</li>
+            <li>Any attempt to use Lagoon to contact, solicit, or exploit a minor</li>
+            <li>Child sexual abuse material (CSAM) in any form, including AI-generated imagery</li>
+          </ul>
+          Lagoon is not directed at children and is intended only for users who meet our minimum age requirement to create an account. Any account found engaging in this kind of behavior is permanently banned.
+        </div>
+      </div>
+
+      <div class="row left">
+        <div class="avatar">L</div>
+        <div class="bubble">
+          How can I report a concern about child safety?
+        </div>
+      </div>
+
+      <div class="row right">
+        <div class="bubble">
+          You can report any concerning content or behavior directly inside the Lagoon app using the in-app feedback and reporting option, without needing to leave the app. You can also reach our child safety point of contact directly:<br><br>
+          <strong>[email protected]</strong>
+        </div>
+      </div>
+
+      <div class="row left">
+        <div class="avatar">L</div>
+        <div class="bubble">
+          What happens when a report is made?
+        </div>
+      </div>
+
+      <div class="row right">
+        <div class="bubble">
+          Any report involving suspected CSAE or CSAM is reviewed as a priority. Where we obtain actual knowledge of CSAM on Lagoon, we:
+          <ul>
+            <li>Immediately remove the content</li>
+            <li>Permanently ban the account responsible</li>
+            <li>Report confirmed CSAM to the National Center for Missing &amp; Exploited Children (NCMEC) or the relevant local authority, in accordance with applicable child safety laws</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row left">
+        <div class="avatar">L</div>
+        <div class="bubble">
+          Who is Lagoon's designated child safety point of contact?
+        </div>
+      </div>
+
+      <div class="row right">
+        <div class="bubble">
+          Our designated point of contact for child safety matters is reachable at <strong>[email protected]</strong>. They are able to speak to Lagoon's CSAE prevention practices and our compliance with this policy.
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer">
+      This page constitutes Lagoon's published standards against child sexual abuse and exploitation (CSAE), applicable to the Lagoon app developed by Lagoon, in line with Google Play's Child Safety Standards policy.
+    </div>
+
+  </div>
+
   <script>
     function showTab(tab) {
       document.getElementById('panel-delete').classList.toggle('active', tab === 'delete');
       document.getElementById('panel-privacy').classList.toggle('active', tab === 'privacy');
+      document.getElementById('panel-childsafety').classList.toggle('active', tab === 'childsafety');
       document.getElementById('tab-delete-btn').classList.toggle('active', tab === 'delete');
       document.getElementById('tab-privacy-btn').classList.toggle('active', tab === 'privacy');
+      document.getElementById('tab-childsafety-btn').classList.toggle('active', tab === 'childsafety');
       try {
-        history.replaceState(null, '', tab === 'privacy' ? '#privacy-policy' : '#delete-account');
+        var hashMap = { privacy: '#privacy-policy', childsafety: '#child-safety-standards', delete: '#delete-account' };
+        history.replaceState(null, '', hashMap[tab] || '#delete-account');
       } catch (e) {
         // Ignore — some sandboxed preview environments block history changes.
       }
@@ -405,6 +492,8 @@
       var hash = window.location.hash.replace('#', '');
       if (hash === 'privacy-policy' || hash === 'privacy') {
         showTab('privacy');
+      } else if (hash === 'child-safety-standards' || hash === 'childsafety' || hash === 'child-safety') {
+        showTab('childsafety');
       } else {
         showTab('delete');
       }
